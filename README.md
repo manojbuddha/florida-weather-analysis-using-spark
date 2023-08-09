@@ -49,3 +49,24 @@ from pyspark.sql import SparkSession
 sc = SparkContext.getOrCreate()
 spark = SparkSession.builder.getOrCreate()
 ~~~
+
+Steps to integrate docker and postgres with spark:
+1) Install the docker application from the installation files.
+2) Then install the "WSL update" from installation files.
+3) Open command prompt as admin and run the below command to get postgres 14 docker image.
+```
+docker pull postgres:14
+```
+4) Run the below command to run postgres docker, replace password with your own password.
+```
+docker run -p 5432:5432 --name dockerPostgres -v "c:/volDocker/postgres/var/lib/postgresql/data" -e POSTGRES_PASSWORD=mypostgres -d postgres:14.0
+```
+4) Install pgAdmin from installation files, and open pgAdmin application.
+5) Click add new server and give server ip address and password that was used when creating docker container.
+6)  Copy the postgres jar file(postgresql-42.2.24) from Installation files and place it under “C:/BigData/Spark/jars”.
+
+
+
+
+
+
